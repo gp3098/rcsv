@@ -1,68 +1,43 @@
 <template>
   <div class="home container">
-    <div class="header">
-      <div class="logo">
-        <img src="" alt="" class="huicang-logo" />
-      </div>
-      <div class="nav">
-        <ul class="lang none-list-style">
-          <li class="lang-item active">中文</li>
-          <li class="lang-item">English</li>
-          <li class="lang-item">日本語</li>
-        </ul>
-        <ul class="tabs none-list-style">
-          <li class="home active">首页</li>
-          <li class="products">产品中心</li>
-          <li class="news">新闻中心</li>
-          <li class="about-us">关于慧仓</li>
-        </ul>
-      </div>
+    <site-header />
+    <div class="body">
+      <a-carousel :after-change="onChange">
+        <div><h3>1</h3></div>
+        <div><h3>2</h3></div>
+        <div><h3>3</h3></div>
+        <div><h3>4</h3></div>
+      </a-carousel>
     </div>
-    <div class="body"></div>
-    <div class="footer">
-      <div class="main-info">
-        <div class="logo">
-          <img src="" alt="慧仓科技LOGO" />
-        </div>
-        <div class="yellow-pages-information">
-          <ul class="none-list-style">
-            <li>
-              <i></i>
-              <span>浙江省杭州市滨江区滨康路101号海威大厦裙楼3层</span>
-            </li>
-            <li>
-              <i></i>
-              <span>400-099-2588</span>
-            </li>
-            <li>
-              <i></i>
-              <span> (0571)8610-0693 </span>
-            </li>
-            <li>
-              <i></i>
-              <span> www.hcrobots.com </span>
-            </li>
-          </ul>
-        </div>
-        <div class="official-account-qr-code">
-          <img src="" alt="公众号二维码" />
-        </div>
-      </div>
-      <div class="for-record-information">
-        ©HC Robots 浙ICP备17025264号
-      </div>
-    </div>
+    <site-footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
+import { Carousel as ACarousel } from "ant-design-vue";
 
+import SiteFooter from "../layout/components/SiteFooter.vue";
+import SiteHeader from "../layout/components/SiteHeader.vue";
+// const app = createApp();
+// app.use(Carousel);
 export default {
   name: "Home",
   components: {
+    SiteFooter,
+    ACarousel,
+    // Button,
+    // Carousel,
+    SiteHeader,
+
     // HelloWorld,
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    onChange(a, b, c) {
+      console.log(a, b, c);
+    },
   },
 };
 </script>
@@ -75,108 +50,26 @@ export default {
   min-height: 100vh;
   margin: 0 auto;
 }
-
-//头部样式
-.header {
-  width: 100%;
-  // height: 100px;
-  overflow: hidden;
-  display: flex;
-  .logo {
-    width: 490px;
-    height: 80px;
-    background-color: grey;
-  }
-  .nav {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    > ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    .lang {
-      height: 2em;
-      line-height: 1em;
-      padding: 0.5em;
-      box-sizing: border-box;
-      text-align: right;
-      display: flex;
-      justify-content: flex-end;
-      margin-right: 80px;
-      color: grey;
-      background-color: white;
-      > * {
-        padding: 0 1em;
-      }
-      & .active {
-        color: cornflowerblue;
-      }
-      > * + * {
-        border-left: 1px solid #000;
-      }
-    }
-    .tabs {
-      display: flex;
-      flex: auto;
-      justify-content: space-evenly;
-      align-items: center;
-      background-color: #2b75c4;
-      color: white;
-      font-size: 1.2rem;
-      > li {
-        text-align: center;
-        flex: 1;
-        line-height: 2.5em;
-      }
-      & .active {
-        background-color: #5db4e2;
-      }
-    }
-  }
-}
 .none-list-style {
   list-style: none;
 }
+
 .body {
   min-height: calc(100vh - 80px);
 }
+</style>
 
-//底部样式
-.footer {
-  // position: absolute;
-  // bottom: 0;
-  // left: 0;
-  // width: 100%;
-  background-color: #434343;
-  color: white;
-  height: 350px;
+<style scoped>
+/* For demo */
+.ant-carousel ::v-deep(.slick-slide) {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
   overflow: hidden;
-  .main-info {
-    margin: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .logo {
-    }
-    .yellow-pages-information {
-      display: flex;
-      flex-direction: column;
-      // align-items: center;
-      justify-content: center;
-      line-height: 2em;
-      padding: 1em;
-      border-left: 1px solid white;
-      border-right: 1px solid white;
-    }
-  }
-  .for-record-information {
-    height: 50px;
-    background-color: #222;
-    text-align: center;
-    line-height: 50px;
-  }
+}
+
+.ant-carousel ::v-deep(.slick-slide h3) {
+  color: #fff;
 }
 </style>

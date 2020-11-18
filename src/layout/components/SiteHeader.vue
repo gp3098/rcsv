@@ -1,108 +1,94 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a>
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a>
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a>
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a>
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a>
-      </li>
-      <li>
-        <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a>
-      </li>
-    </ul>
+  <div class="header">
+    <div class="logo">
+      <img src="" alt="" class="huicang-logo" />
+    </div>
+    <div class="nav">
+      <ul class="lang none-list-style">
+        <li class="lang-item active">中文</li>
+        <li class="lang-item">English</li>
+        <li class="lang-item">日本語</li>
+      </ul>
+      <ul class="tabs none-list-style">
+        <li class="home active">首页</li>
+        <li class="products">产品中心</li>
+        <li class="news">新闻中心</li>
+        <li class="about-us">关于慧仓</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "SiteHeader",
-  props: {
-    msg: String,
-  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-h3 {
-  margin: 40px 0 0;
+//头部样式
+.header {
+  width: 100%;
+  // height: 100px;
+  overflow: hidden;
+  display: flex;
+  .logo {
+    width: 490px;
+    height: 80px;
+    background-color: grey;
+  }
+  .nav {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    > ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .lang {
+      height: 2em;
+      line-height: 1em;
+      padding: 0.5em;
+      box-sizing: border-box;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 80px;
+      color: grey;
+      background-color: white;
+      > * {
+        padding: 0 1em;
+      }
+      & .active {
+        color: cornflowerblue;
+      }
+      > * + * {
+        border-left: 1px solid #000;
+      }
+    }
+    .tabs {
+      display: flex;
+      flex: auto;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: #2b75c4;
+      color: white;
+      font-size: 1.2rem;
+      > li {
+        text-align: center;
+        flex: 1;
+        line-height: 2.5em;
+      }
+      & .active {
+        background-color: #5db4e2;
+      }
+    }
+  }
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.none-list-style {
+  list-style: none;
 }
 </style>
