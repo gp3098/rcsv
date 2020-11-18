@@ -1,108 +1,87 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a>
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a>
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a>
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a>
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a>
-      </li>
-      <li>
-        <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a>
-      </li>
-    </ul>
+  <div class="body">
+    <a-carousel>
+      <div v-for="(img, index) in imgs" :key="index">
+        <img class="big-pic" :src="img.src" />
+      </div>
+    </a-carousel>
+    <div class="about-hc">
+      <h1>
+        <span>关于慧仓</span>
+        <span> ABOUT HC </span>
+      </h1>
+      <div class="article">
+        <p>
+          abcef
+        </p>
+        <img :src="abouthc" alt="" class="about-hc-img" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { Carousel as ACarousel } from "ant-design-vue";
+import big1 from "../../assets/big1.png";
+import big2 from "../../assets/big2.png";
+import big3 from "../../assets/big3.png";
+import abouthc from "../../assets/about-hc.png";
+
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
+  name: "SiteBody",
+  props: {},
+  data() {
+    return {
+      abouthc,
+      imgs: [{ src: big1 }, { src: big2 }, { src: big3 }],
+    };
   },
+  components: {
+    ACarousel,
+  },
+  methods: {},
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-h3 {
-  margin: 40px 0 0;
+.about-hc {
+  width: 100%;
+  text-align: center;
+  > h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .article {
+    display: flex;
+    justify-content: space-evenly;
+    p {
+      width: 500px;
+      height: 400px;
+      text-align: left;
+    }
+  }
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+</style>
+
+<style scoped>
+/* For demo */
+.ant-carousel ::v-deep(.slick-slide) {
+  text-align: center;
+  /* height: 660px; */
+  /* line-height: 160px; */
+  /* background: #364d79; */
+  overflow: hidden;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.ant-carousel ::v-deep(.slick-slide h3) {
+  color: #fff;
 }
-a {
-  color: #42b983;
+.big-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 </style>

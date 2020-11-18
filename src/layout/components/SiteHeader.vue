@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="logo">
-      <img src="" alt="" class="huicang-logo" />
+      <img src="../../assets/logo.png" alt="" class="huicang-logo" />
     </div>
     <div class="nav">
       <ul class="lang none-list-style">
@@ -36,7 +36,6 @@ export default {
   .logo {
     width: 490px;
     height: 80px;
-    background-color: grey;
   }
   .nav {
     flex: auto;
