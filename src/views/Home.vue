@@ -37,6 +37,7 @@ export default {
   width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
+  overflow: auto;
 }
 .none-list-style {
   list-style: none;
