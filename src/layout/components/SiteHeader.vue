@@ -9,12 +9,21 @@
         <li class="lang-item">English</li>
         <li class="lang-item">日本語</li>
       </ul>
-      <ul class="tabs none-list-style">
-        <li class="home active">首页</li>
-        <li class="products">产品中心</li>
-        <li class="news">新闻中心</li>
-        <li class="about-us">关于慧仓</li>
-      </ul>
+      <div class="tabs none-list-style">
+        <router-link
+          v-for="link in links"
+          :key="link"
+          :to="link.to"
+          :class="link.class"
+          active-class="active"
+        >
+          {{ link.name }}
+        </router-link>
+        <!-- <router-link to="/" class="home active">首页</router-link>
+        <router-link to="products" class="products">产品中心</router-link>
+        <router-link to="news" class="news">新闻中心</router-link>
+        <router-link to="about" class="about-us"> 关于慧仓 </router-link> -->
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +31,16 @@
 <script>
 export default {
   name: "SiteHeader",
+  data() {
+    return {
+      links: [
+        { name: "首页", to: "home", class: "home" },
+        { name: "产品中心", to: "products", class: "products" },
+        { name: "新闻中心", to: "news", class: "news" },
+        { name: "关于慧仓", to: "about", class: "about-us" },
+      ],
+    };
+  },
 };
 </script>
 
@@ -41,6 +60,7 @@ export default {
     flex: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     overflow: hidden;
     > ul {
       margin: 0;
@@ -76,10 +96,15 @@ export default {
       background-color: #2b75c4;
       color: white;
       font-size: 1.2rem;
-      > li {
+      > a {
         text-align: center;
         flex: 1;
-        line-height: 2.5em;
+        height: 100%;
+        // line-height: 2.5em;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       & .active {
         background-color: #5db4e2;

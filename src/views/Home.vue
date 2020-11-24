@@ -1,13 +1,14 @@
 <template>
   <div class="home container">
     <site-header />
-    <site-body />
+    <router-view class="body" />
+    <!-- <site-body /> -->
     <site-footer />
   </div>
 </template>
 
 <script>
-import SiteBody from "../layout/components/SiteBody.vue";
+// import SiteBody from "../layout/components/SiteBody.vue";
 import SiteFooter from "../layout/components/SiteFooter.vue";
 import SiteHeader from "../layout/components/SiteHeader.vue";
 // const app = createApp();
@@ -19,7 +20,7 @@ export default {
     // Button,
     // Carousel,
     SiteHeader,
-    SiteBody,
+    // SiteBody,
 
     // HelloWorld,
   },
