@@ -410,21 +410,18 @@
         .news-item {
           display: flex;
           align-items: center;
+          width: 100%;
           .no {
             font-size: 1.4em;
             font-weight: bold;
             padding: 0 1.2em;
           }
           .summary {
-            flex: auto;
+            width: calc(100% - 40px);
           }
           .title {
-            width: 99%;
             font-size: 1.2em;
             font-weight: bold;
-          }
-          .small {
-            width: 99%;
           }
         }
       }

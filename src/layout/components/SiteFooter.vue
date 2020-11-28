@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="main-info">
       <div class="logo">
-        <img src="" alt="慧仓科技LOGO" />
+        <img src="../../assets/logo-tran.png" alt="慧仓科技LOGO" />
       </div>
       <div class="yellow-pages-information">
         <ul class="none-list-style">
@@ -25,7 +25,8 @@
         </ul>
       </div>
       <div class="official-account-qr-code">
-        <img src="" alt="公众号二维码" />
+        <img src="../../assets/qr-code.jpg" alt="公众号二维码" />
+        <span>扫一扫关注公众号</span>
       </div>
     </div>
     <div class="for-record-information">
@@ -53,14 +54,23 @@ export default {
   // width: 100%;
   background-color: #434343;
   color: white;
-  height: 350px;
+  // height: 350px;
   overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
   .main-info {
     margin: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     .logo {
+      width: 250px;
+      padding: 25px;
+      box-sizing: border-box;
+      > img {
+        width: 100%;
+      }
     }
     .yellow-pages-information {
       display: flex;
@@ -72,6 +82,16 @@ export default {
       border-left: 1px solid white;
       border-right: 1px solid white;
     }
+    .official-account-qr-code {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      > img {
+        width: 11.5em;
+        padding: 25px;
+      }
+    }
   }
   .for-record-information {
     height: 50px;
@@ -79,8 +99,5 @@ export default {
     text-align: center;
     line-height: 50px;
   }
-}
-.none-list-style {
-  list-style: none;
 }
 </style>
